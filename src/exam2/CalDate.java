@@ -7,11 +7,11 @@ import java.util.regex.Pattern;
 public class CalDate {
 
 	public static void main(String[] args) {
-		System.out.println("ÇëÊäÈëÈÕÆÚ£º");
+		System.out.println("è¯·è¾“å…¥æ—¥æœŸï¼š");
 		Scanner input = new Scanner(System.in);
 		String date = input.nextLine();
 		if(!isDate(date)){
-			System.out.println("ÄúÊäÈëµÄÈÕÆÚ²»´æÔÚ");
+			System.out.println("æ‚¨è¾“å…¥çš„æ—¥æœŸä¸å­˜åœ¨");
 		}else{
 			String[] split = date.split("-");
 			String years = split[0];
@@ -24,32 +24,32 @@ public class CalDate {
 		}
 	}
 	/**
-	 * Êä³öÏÂÒ»ÌìÈÕÆÚ
+	 * è¾“å‡ºä¸‹ä¸€å¤©æ—¥æœŸ
 	 */
 	private static void nextDate(int year, int month, int day) {
-		//31Ìì
+		//31å¤©
 		if(month==1||month==3||month==5||month==7||month==8||month==10||month==12){
-			if(day>=1&&day<31){//ÔÚÕı³£·¶Î§ÄÚÖ±½ÓÌìÊı+1
+			if(day>=1&&day<31){//åœ¨æ­£å¸¸èŒƒå›´å†…ç›´æ¥å¤©æ•°+1
 				day+=1;
 			}else{
-				if(month==12&&day==31){//Ò»Äê×îºóÒ»Ìì¾ÍÏÂÒ»Äê
+				if(month==12&&day==31){//ä¸€å¹´æœ€åä¸€å¤©å°±ä¸‹ä¸€å¹´
 					year+=1;
 					day = 1;
 					month = 1;
-				}else if(month!=12&&day==31){//Õı³£ÔÂ·İ×îºóÒ»Ìì¾ÍÔÂ·İ+1
+				}else if(month!=12&&day==31){//æ­£å¸¸æœˆä»½æœ€åä¸€å¤©å°±æœˆä»½+1
 					month+=1;
 					day = 1;
 				}
 			}
-		}else if(month==2){//ÈòÔÂ
-			if(isLeapYear(year)){//ÈòÄê
+		}else if(month==2){//é—°æœˆ
+			if(isLeapYear(year)){//é—°å¹´
 				if(day>=1&&day<29){
 					day+=1;
 				}else if(day==29){
 					month+=1;
 					day = 1;
 				}
-			}else{//Æ½Äê
+			}else{//å¹³å¹´
 				if(day>=1&&day<28){
 					day+=1;
 				}else if(day==28){
@@ -57,21 +57,21 @@ public class CalDate {
 					day = 1;
 				}
 			}
-		}else if(month==4||month==6||month==9||month==11){//30Ìì
-			if(day>=1&&day<30){//ÔÚÕı³£·¶Î§ÄÚÖ±½ÓÌìÊı+1
+		}else if(month==4||month==6||month==9||month==11){//30å¤©
+			if(day>=1&&day<30){//åœ¨æ­£å¸¸èŒƒå›´å†…ç›´æ¥å¤©æ•°+1
 				day+=1;
-			}else if(day==30){//ÔÂ·İ×îºóÒ»Ìì ÔÂ·İ+1
+			}else if(day==30){//æœˆä»½æœ€åä¸€å¤© æœˆä»½+1
 				month+=1;
 				day = 1;
 			}
 		}
 		String sm = month<10?"0"+month:month+"";
 		String sd = day<10?"0"+day:day+"";
-		System.out.println("ÏÂÒ»ÌìÎª "+year+"-"+sm+"-"+sd);
+		System.out.println("ä¸‹ä¸€å¤©ä¸º "+year+"-"+sm+"-"+sd);
 	}
 
 	/**
-	 * ÅĞ¶ÏÊÇ·ñÈòÄê
+	 * åˆ¤æ–­æ˜¯å¦é—°å¹´
 	 */
 	private static boolean isLeapYear(int year){
 		if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)return true;
@@ -79,12 +79,12 @@ public class CalDate {
 	}
 	
 	 /** 
-     * ÓÃÕıÔòÅĞ¶ÏÈÕÆÚ¸ñÊ½ºÍ·¶Î§ 
+     * ç”¨æ­£åˆ™åˆ¤æ–­æ—¥æœŸæ ¼å¼å’ŒèŒƒå›´ 
      */  
 	private static boolean isDate(String date)  
     {  
        
-        String rexp = "^((\\d{2}(([02468][048])|([13579][26]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])))))|(\\d{2}(([02468][1235679])|([13579][01345789]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|(1[0-9])|(2[0-8]))))))";  
+        String rexp = "((^\\d{4}-0\\d{1}-[0-3]{1}\\d{1})|(^\\d{4}-1[0-2]{1}-[0-3]{1}\\d{1}))$";  
           
         Pattern pat = Pattern.compile(rexp);    
           
